@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الرواق AI - أنظمة ذكية وأتمتة الأعمال</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #0a0e17;
+            color: #e8edf5;
+            line-height: 1.7;
+        }
+
+        /* ===== شريط التنقل ===== */
+        .navbar {
+            background: rgba(10, 14, 23, 0.95);
+            padding: 18px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 200, 255, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+        .logo span {
+            color: #00d4ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #b0c4de;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+        .nav-links .cta-btn {
+            background: #00d4ff;
+            color: #0a0e17;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .nav-links .cta-btn:hover {
+            background: #fff;
+            color: #0a0e17;
+        }
+
+        /* ===== القسم الرئيسي ===== */
+        .hero {
+            padding: 100px 60px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            max-width: 1300px;
+            margin: 0 auto;
+            min-height: 85vh;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+        .hero-text .badge {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.12);
+            color: #00d4ff;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        .hero-text h1 {
+            font-size: 55px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-text h1 span {
+            color: #00d4ff;
+        }
+        .hero-text p {
+            font-size: 20px;
+            color: #b0c4de;
+            max-width: 550px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #00d4ff;
+            color: #0a0e17;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background: #fff;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 12px 38px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .btn-secondary:hover {
+            border-color: #00d4ff;
+            color: #00d4ff;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-visual .box {
+            background: rgba(0, 212, 255, 0.04);
+            border: 1px solid rgba(0, 212, 255, 0.12);
+            border-radius: 24px;
+            padding: 50px 40px;
+            width: 100%;
+            max-width: 460px;
+            text-align: center;
+        }
+        .hero-visual .box .icon {
+            font-size: 72px;
+            margin-bottom: 16px;
+        }
+        .hero-visual .box h3 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .hero-visual .box p {
+            color: #8899bb;
+            font-size: 16px;
+        }
+
+        /* ===== الأقسام العامة ===== */
+        section {
+            padding: 80px 60px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .section-title span {
+            color: #00d4ff;
+        }
+        .section-sub {
+            color: #8899bb;
+            font-size: 18px;
+            margin-bottom: 50px;
+            max-width: 600px;
+        }
+
+        /* ===== بطاقات الخدمات ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 32px 26px;
+            transition: 0.4s;
+            cursor: default;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 212, 255, 0.25);
+            background: rgba(0, 212, 255, 0.04);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .service-card .emoji {
+            font-size: 44px;
+            margin-bottom: 12px;
+        }
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .service-card p {
+            color: #b0c4de;
+            font-size: 15px;
+        }
+
+        /* ===== السياسة ===== */
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+        .policy-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-right: 3px solid #00d4ff;
+            padding: 20px 24px;
+            border-radius: 8px;
+        }
+        .policy-item h4 {
+            color: #00d4ff;
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+        .policy-item p {
+            color: #b0c4de;
+            font-size: 15px;
+        }
+
+        /* ===== نموذج التواصل ===== */
+        .contact-wrap {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+        }
+        .contact-info {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .contact-info h4 {
+            color: #00d4ff;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+        .contact-info p {
+            color: #b0c4de;
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+        .contact-info .icon {
+            margin-left: 10px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            color: #fff;
+            font-family: 'Cairo', sans-serif;
+            font-size: 16px;
+            margin-bottom: 18px;
+            transition: 0.3s;
+        }
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #00d4ff;
+            background: rgba(0, 212, 255, 0.04);
+        }
+        textarea {
+            height: 130px;
+            resize: vertical;
+        }
+        select option {
+            background: #0a0e17;
+        }
+
+        .btn-submit {
+            background: #00d4ff;
+            color: #0a0e17;
+            padding: 14px 44px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Cairo', sans-serif;
+        }
+        .btn-submit:hover {
+            background: #fff;
+            transform: scale(1.02);
+        }
+
+        /* ===== الفوتر ===== */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 60px;
+            text-align: center;
+            color: #556688;
+            font-size: 15px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        footer span {
+            color: #00d4ff;
+        }
+
+        /* ===== استجابة للجوال ===== */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                padding: 60px 30px;
+                text-align: center;
+            }
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .navbar {
+                flex-direction: column;
+                gap: 14px;
+                padding: 16px 24px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 18px;
+            }
+            section {
+                padding: 50px 24px;
+            }
+            .section-title {
+                font-size: 30px;
+            }
+            .hero-text h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-text h1 {
+                font-size: 28px;
+            }
+            .hero-text p {
+                font-size: 17px;
+            }
+            .btn-primary,
+            .btn-secondary {
+                font-size: 15px;
+                padding: 12px 28px;
+            }
+            .hero-visual .box {
+                padding: 30px 20px;
+            }
+            .hero-visual .box .icon {
+                font-size: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== شريط التنقل ===== -->
+    <nav class="navbar">
+        <div class="logo">الرواق <span>AI</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#services">الخدمات</a></li>
+            <li><a href="#policy">السياسة</a></li>
+            <li><a href="#contact" class="cta-btn">طلب خدمة</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== القسم الرئيسي ===== -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <div class="badge">AI · AUTOMATION · INTELLIGENT SYSTEMS</div>
+            <h1>نحوّل الأعمال المتكررة إلى <span>أنظمة ذكية</span> تعمل من أجلك</h1>
+            <p>الرواق AI تبني حلول الأتمتة والأنظمة الرقمية الذكية لتحويل عملياتك اليدوية إلى منظومة منظمة، أسرع، وأكثر كفاءة.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">اطلب الخدمة الآن</a>
+                <a href="#services" class="btn-secondary">استكشف الخدمات</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="box">
+                <div class="icon">⚡</div>
+                <h3>أنظمة ذكية · أتمتة متقدمة</h3>
+                <p>نبني حلولاً مخصصة تربط بياناتك، تفهم عملك، وتنفذ الإجراءات تلقائياً.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== الخدمات ===== -->
+    <section id="services">
+        <h2 class="section-title">خدمات <span>الرواق AI</span></h2>
+        <p class="section-sub">حلول مخصصة حسب طبيعة نشاطك، ليست مجرد منتجات جاهزة، بل أنظمة تفهم احتياجاتك الفعلية.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="emoji">⚙️</div>
+                <h3>أتمتة الأعمال</h3>
+                <p>تحويل المهام المتكررة (الطلبات، السجلات، التقارير، الإشعارات) إلى عمليات تلقائية تنفذ نفسها.</p>
+            </div>
+            <div class="service-card">
+                <div class="emoji">🧠</div>
+                <h3>أنظمة الذكاء الاصطناعي</h3>
+                <p>دمج قدرات AI لفهم النصوص، تصنيف البيانات، التلخيص، واتخاذ قرارات ذكية داخل أنظمتك.</p>
+            </div>
+            <div class="service-card">
+                <div class="emoji">🔗</div>
+                <h3>ربط الأنظمة والخدمات</h3>
+                <p>ربط أنظمتك المختلفة (المتجر، إدارة العملاء، البريد) لتبادل البيانات تلقائياً بدون تدخل يدوي.</p>
+            </div>
+            <div class="service-card">
+                <div class="emoji">🤖</div>
+                <h3>أتمتة خدمة العملاء</h3>
+                <p>أنظمة لاستقبال الاستفسارات، تصنيف الطلبات، الرد على الأسئلة المتكررة، وتحويل الحالات للموظف المناسب.</p>
+            </div>
+            <div class="service-card">
+                <div class="emoji">🏗️</div>
+                <h3>أنظمة مخصصة</h3>
+                <p>تصميم نظام متكامل حسب طريقة عملك (واجهات، قاعدة بيانات، APIs، لوحات تحكم، صلاحيات).</p>
+            </div>
+            <div class="service-card">
+                <div class="emoji">📊</div>
+                <h3>تحليل البيانات والتقارير</h3>
+                <p>أنظمة لاستخراج المعلومات، تحليل الأداء، وإنشاء تقارير لحظية تساعدك على اتخاذ القرارات.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== السياسة ===== -->
+    <section id="policy">
+        <h2 class="section-title">سياسة <span>الخدمة</span></h2>
+        <p class="section-sub">نلتزم بالشفافية والجودة في كل مشروع. هذه هي مبادئ عملنا.</p>
+
+        <div class="policy-grid">
+            <div class="policy-item">
+                <h4>🔐 خصوصية البيانات</h4>
+                <p>جميع معلوماتك تُستخدم فقط لتقديم الخدمة المطلوبة، ولا تُباع أو تُشارك مع أطراف خارجية.</p>
+            </div>
+            <div class="policy-item">
+                <h4>📋 آلية العمل</h4>
+                <p>استشارة → تصميم → اختبار → تسليم → دعم. كل مشروع له خطة زمنية متفق عليها مسبقاً.</p>
+            </div>
+            <div class="policy-item">
+                <h4>✅ شروط الخدمة</h4>
+                <p>جميع حلولنا مخصصة حسب طلب العميل. يتم الاتفاق على الجدول الزمني والتكلفة قبل البدء.</p>
+            </div>
+            <div class="policy-item">
+                <h4>🏷️ ملكية المشروع</h4>
+                <p>بعد التسليم النهائي، يصبح النظام ملكاً لك بالكامل. لا نربطك بعقود طويلة الأجل.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== التواصل ===== -->
+    <section id="contact">
+        <h2 class="section-title">طلب <span>خدمة أو استشارة</span></h2>
+        <p class="section-sub">املأ النموذج وسنقوم بالتواصل معك في أقرب وقت. أخبرنا عن مشكلتك، وسنجد لها حلاً ذكياً.</p>
+
+        <div class="contact-wrap">
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <input type="text" placeholder="الاسم الكامل" required />
+                    <input type="text" placeholder="اسم الشركة (اختياري)" />
+                    <input type="email" placeholder="البريد الإلكتروني" required />
+                    <input type="tel" placeholder="رقم الجوال" required />
+
+                    <select required>
+                        <option value="">نوع الخدمة المطلوبة</option>
+                        <option>أتمتة الأعمال</option>
+                        <option>أنظمة الذكاء الاصطناعي</option>
+                        <option>ربط الأنظمة والخدمات</option>
+                        <option>أتمتة خدمة العملاء</option>
+                        <option>أنظمة مخصصة</option>
+                        <option>استشارة عامة</option>
+                    </select>
+
+                    <textarea placeholder="صف مشكلتك أو متطلباتك بالتفصيل..." required></textarea>
+
+                    <button type="submit" class="btn-submit">إرسال الطلب</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h4>📬 معلومات التواصل</h4>
+                <p><span class="icon">📧</span> info@alriwaq.ai</p>
+                <p><span class="icon">📞</span> ٠٥٠٠٠٠٠٠٠٠</p>
+                <p><span class="icon">📍</span> الرياض، المملكة العربية السعودية</p>
+                <p style="margin-top: 24px; color: #8899bb; font-size: 15px;">
+                    نرد خلال ٢٤ ساعة عمل.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== الفوتر ===== -->
+    <footer>
+        &copy; 2026 <span>الرواق AI</span> — جميع الحقوق محفوظة.
+        <br style="display: none;" />
+        <span style="color: #445566; font-size: 13px;">AI · Automation · Intelligent Systems</span>
+    </footer>
+
+    <!-- ===== سكربت بسيط لتوجيه النموذج (يظهر رسالة) ===== -->
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✅ تم استلام طلبك! سنتواصل معك خلال 24 ساعة.');
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
